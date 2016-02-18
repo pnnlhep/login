@@ -1,6 +1,6 @@
 [openstack-icehouse]
 name=OpenStack Icehouse Repository
-baseurl=http://repos.fedorapeople.org/repos/openstack/EOL/openstack-icehouse/%DIST%-%RELEASEVER%/
+baseurl=http://repos.fedorapeople.org/repos/openstack/EOL/openstack-icehouse/epel-6/
 enabled=1
 skip_if_unavailable=0
 gpgcheck=0
