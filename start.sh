@@ -24,8 +24,8 @@ if [ "x$START_WAIT_DONE_FILE" != "x" ]; then
 fi
 wait $pid
 while true; do
-	ps -eo cmd | grep ^sshd | grep -v grep
-        [ $? -ne 0 ] && break
+	num=$(ps -eo cmd | grep ^sshd | grep -v grep | wc -l)
+        [ $num -eq 0 ] && break
         sleep 1
 done
 [ -f /etc/shutdown.sh ] && bash /etc/shutdown.sh
