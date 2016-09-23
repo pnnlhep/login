@@ -15,7 +15,7 @@ then
 	/etc/init.d/sshd start
 	/etc/init.d/sshd stop
 fi
-/usr/sbin/sshd -D $OPTIONS
+exec /usr/sbin/sshd -D $OPTIONS
 ) & pid=$!
 trap "kill $pid" TERM
 echo $pid > /var/run/ssh.pid
