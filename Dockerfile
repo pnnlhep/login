@@ -11,5 +11,7 @@ RUN yum clean all; yum install -y sysstat bwctl-client strace bzip2-devel openss
 
 ADD ./start.sh /etc/start.sh
 RUN chmod +x /etc/start.sh
+ADD ./drain.sh /etc/drain.sh
+RUN chmod +x /etc/drain.sh
 
 CMD ["/etc/start.sh"]

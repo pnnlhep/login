@@ -23,4 +23,9 @@ if [ "x$START_WAIT_DONE_FILE" != "x" ]; then
 	touch "$START_WAIT_DONE_FILE"
 fi
 wait $pid
+while true; do
+	ps -eo cmd | grep ^sshd | grep -v grep
+        [ $? -ne 0 ] && break
+        sleep 1
+done
 [ -f /etc/shutdown.sh ] && bash /etc/shutdown.sh
