@@ -22,10 +22,10 @@ echo $pid > /var/run/ssh.pid
 if [ "x$START_WAIT_DONE_FILE" != "x" ]; then
 	touch "$START_WAIT_DONE_FILE"
 fi
-wait $pid
+wait $pid || true
 while true; do
 	num=$(ps -eo cmd | grep ^sshd | grep -v grep | wc -l)
-        [ $num -eq 0 ] && break
+        [ $num -eq 0 ] && break || true
         sleep 1
 done
 [ -f /etc/shutdown.sh ] && bash /etc/shutdown.sh
