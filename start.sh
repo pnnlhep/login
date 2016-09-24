@@ -17,7 +17,7 @@ then
 fi
 exec /usr/sbin/sshd -D $OPTIONS
 ) & pid=$!
-trap "kill $pid" TERM
+trap "kill $pid || true" TERM
 echo $pid > /var/run/ssh.pid
 if [ "x$START_WAIT_DONE_FILE" != "x" ]; then
 	touch "$START_WAIT_DONE_FILE"
