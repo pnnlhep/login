@@ -6,10 +6,10 @@ ADD ./liberty.repo /etc/yum.repos.d/liberty.repo
 RUN rpm -Uvh http://software.internet2.edu/rpms/el6/x86_64/main/RPMS/Internet2-repo-0.6-1.noarch.rpm
 
 #Rebuild manpages
-RUN [ -e /etc/yum.conf ] && sed -i '/tsflags=nodocs/d' /etc/yum.conf || true \
+RUN [ -e /etc/yum.conf ] && sed -i '/tsflags=nodocs/d' /etc/yum.conf || true; \
     yum -y reinstall "*"
 
-RUN yum clean all; yum install -y sysstat bwctl-client strace bzip2-devel openssl-devel ncurses-devel readline-devel screen telnet zsh gdb git osg-client osg-client-condor edg-mkgridmap lcmaps-plugins-gums-client lcmaps-plugins-basic lcmaps-plugins-verify-proxy fts-client voms-admin-client python-heatclient python-cinderclient python-novaclient python-neutronclient openssh-server ansible lsof vim-enhanced strace gdb man nc emacs xemacs byobu xauth 389-console pam_ldap \
+RUN yum clean all; yum install -y sysstat bwctl-client strace bzip2-devel openssl-devel ncurses-devel readline-devel screen telnet zsh gdb git osg-client osg-client-condor edg-mkgridmap lcmaps-plugins-gums-client lcmaps-plugins-basic lcmaps-plugins-verify-proxy fts-client voms-admin-client python-heatclient python-cinderclient python-novaclient python-neutronclient openssh-server ansible lsof vim-enhanced strace gdb man nc emacs xemacs byobu xauth 389-console pam_ldap; \
     rpm -Uvh https://packages.chef.io/stable/el/7/chefdk-0.19.6-1.el7.x86_64.rpm
 
 ADD ./start.sh /etc/start.sh
