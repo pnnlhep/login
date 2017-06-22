@@ -10,7 +10,7 @@ RUN [ -e /etc/yum.conf ] && sed -i '/tsflags=nodocs/d' /etc/yum.conf || true; \
     yum -y reinstall --exclude=filesystem "*"
 
 RUN yum clean all; yum install -y sysstat bwctl-client strace bzip2-devel openssl-devel ncurses-devel readline-devel screen telnet zsh gdb git osg-client osg-client-condor edg-mkgridmap lcmaps-plugins-gums-client lcmaps-plugins-basic lcmaps-plugins-verify-proxy fts-client voms-admin-client python-heatclient python-cinderclient python-novaclient python-neutronclient openssh-server ansible lsof vim-enhanced strace gdb man nc emacs xemacs byobu xauth 389-console pam_ldap; \
-    rpm -Uvh https://packages.chef.io/stable/el/6/chefdk-0.19.6-1.el6.x86_64.rpm
+    rpm -Uvh https://packages.chef.io/stable/el/6/chefdk-1.4.3-1.el6.x86_64.rpm
 
 ADD ./start.sh /etc/start.sh
 RUN chmod +x /etc/start.sh
